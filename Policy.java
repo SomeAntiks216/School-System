@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Policy {
     
@@ -13,31 +14,86 @@ public class Policy {
         this.clauses = clauses;
     }
 
+
     // ### ACCESSORS ###
 
-    // accessors
+    /**
+     * 
+     */
+    public ArrayList<String> getClauses() {
+        return this.clauses;
+    }
+
+    public String getClause(int index) {
+        return this.clauses.get(index);
+    }
 
 
     // ### MODIFIERS ###
 
     /**
      * Update this policy
-     * AmendmentType.Update expected due to method overloading and otherwise redundant arguments
+     * AmendmentType.UPDATE expected due to method overloading and otherwise redundant arguments
      * 
-     * @param amend | AmendmentType | type of amendment to be made
-     * @param amdenment | String | policy to be added (AmendmentType.Add and AmendmentType.Update only)
-     * @param clause | int | index of the clause to be updated (AmendmentType.Update only)
+     * @param amend | AmendmentType | type of amendment to be made (AmendmentType.UPDATE expected)
+     * @param amdenment | String | clause to be changed to (AmendmentType.ADD and AmendmentType.UPDATE only)
+     * @param clause | int | index of the clause to be updated (AmendmentType.UPDATE only)
      */
     public boolean Amend(AmendmentType amend, String amendment, int clause) {
 
         try {
-            if (amend == AmendmentType.Update) {
+            if (amend == AmendmentType.UPDATE) {
                 this.clauses.set(clause, amendment);
             } else {
-                throw new IllegalArgumentException("Amendment type <" + amend + "> not supported in this overloaded method.");
+                throw new IllegalArgumentException("Amendment type \"" + amend + "\" not supported in this overload method. Expected AmendmentType.UPDATE.");
             }
         } catch (IllegalArgumentException e) {
-            System.out.println(e);
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Update this policy
+     * AmendmentType.ADD expected due to method overloading and otherwise redundant arguments
+     * 
+     * @param amend | AmendmentType | type of amendment to be made (AmendmentType.ADD expected) 
+     * @param amendment | String | new clause to be added (AmendmentType.ADD and AmendmentType.UPDATE only)
+     */
+    public boolean Amend(AmendmentType amend, String amendment) {
+
+        try {
+            if (amend == AmendmentType.ADD) {
+                this.clauses.add(amendment);
+            } else {
+                throw new IllegalArgumentException("Amendment type \"" + amend + "\" not supported in this overload method. Expected AmendmentType.ADD.");
+            }
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Update this policy
+     * AmendmentType.REMOVE expected due to method overloading and otherwise redundant arguments
+     * 
+     * @param amend | AmendmentType | type of amendment to be made (AmendmentType.REMOVE expected)
+     */
+    public boolean Amend(AmendmentType amend) {
+
+        try {
+            if (amend == AmendmentType.REMOVE) {
+
+            } else {
+                throw new IllegalArgumentException("Amendment type \"" + amend + "\" not supported in this overload method. Expected AmendmentType.REMOVE.");
+            }
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
             return false;
         }
 
@@ -48,7 +104,12 @@ public class Policy {
     // ### MAIN ###
 
     public static void main(String[] args) {
-        
+
+        Policy pol = new Policy("Gayness", new ArrayList<String>(List.of("Thou shalt be gay.", "Thou shalt not harm a homo.")));
+
+        pol.Amend(AmendmentType.UPDATE, "Thou shalt be EXTRA gay.", 0);
+        pol.Amend(AmendmentType.ADD, "Thou shalt love all gays.");
+
     }
 
 }

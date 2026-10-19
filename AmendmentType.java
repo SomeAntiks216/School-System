@@ -1,5 +1,5 @@
 public enum AmendmentType {
-    Add,
-    Remove,
-    Update
+    ADD,
+    REMOVE,
+    UPDATE
 }

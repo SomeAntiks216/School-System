@@ -29,7 +29,7 @@ public class School {
     /**
      * Public name accessor
      * 
-     * @returns String | name of the school
+     * @return String | name of the school
      */
     public String getName() {
         return this.name;
@@ -38,7 +38,7 @@ public class School {
     /**
      * Public course list accessor
      * 
-     * @returns ArrayList<Course> | courses offered at the school
+     * @return ArrayList<Course> | courses offered at the school
      */
     public ArrayList<Course> getCourses() {
         return this.courses;
@@ -47,7 +47,7 @@ public class School {
     /**
      * Public student list accessor
      * 
-     * @returns ArrayList<Student> | students attending the school
+     * @return ArrayList<Student> | students attending the school
      */
     public ArrayList<Student> getStudents() {
         return this.students;
@@ -56,7 +56,7 @@ public class School {
     /**
      * Public policy accessor (entire policy)
      * 
-     * @returns ArrayList<Policy> | school policy list
+     * @return ArrayList<Policy> | school policy list
      */
     public ArrayList<Policy> getPolicy() {
         return this.policy;
@@ -66,7 +66,7 @@ public class School {
      * Public unit policy accessor (singular policy item)
      * 
      * @param index | int | index of the desired policy
-     * @returns Policy | policy at the given index
+     * @return Policy | policy at the given index
      */
     public Policy getUnitPolicy(int index) throws IndexOutOfBoundsException {
         return this.policy.get(index);

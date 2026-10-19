@@ -18,12 +18,29 @@ public class Policy {
     // ### ACCESSORS ###
 
     /**
+     * Public name accessor
      * 
+     * @return String | name of the policy
+     */
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Public clauses accessor (all clauses)
+     * 
+     * @return ArrayList<String> | policy clauses
      */
     public ArrayList<String> getClauses() {
         return this.clauses;
     }
 
+    /**
+     * Public unit clause accessor (singular clause)
+     * 
+     * @param index | int | index of the desired clause
+     * @return Clause | clause at the given index
+     */
     public String getClause(int index) {
         return this.clauses.get(index);
     }
@@ -38,6 +55,7 @@ public class Policy {
      * @param amend | AmendmentType | type of amendment to be made (AmendmentType.UPDATE expected)
      * @param amdenment | String | clause to be changed to (AmendmentType.ADD and AmendmentType.UPDATE only)
      * @param clause | int | index of the clause to be updated (AmendmentType.UPDATE only)
+     * @return boolean | boolean indicator of the success of the method
      */
     public boolean Amend(AmendmentType amend, String amendment, int clause) {
 
@@ -61,6 +79,7 @@ public class Policy {
      * 
      * @param amend | AmendmentType | type of amendment to be made (AmendmentType.ADD expected) 
      * @param amendment | String | new clause to be added (AmendmentType.ADD and AmendmentType.UPDATE only)
+     * @return boolean | boolean indicator of the success of the method
      */
     public boolean Amend(AmendmentType amend, String amendment) {
 
@@ -83,6 +102,7 @@ public class Policy {
      * AmendmentType.REMOVE expected due to method overloading and otherwise redundant arguments
      * 
      * @param amend | AmendmentType | type of amendment to be made (AmendmentType.REMOVE expected)
+     * @return boolean | boolean indicator of the success of the method
      */
     public boolean Amend(AmendmentType amend) {
 

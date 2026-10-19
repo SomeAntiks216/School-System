@@ -34,6 +34,45 @@ public class Course {
         return this.name;
     }
 
+    /**
+     * Public students accessor (all students)
+     * 
+     * @return ArrayList<Student> | list of students in this course
+     */
+    public ArrayList<Student> getStudents() {
+        return this.students;
+    }
+
+    /**
+     * Public unit student accessor (singular student)
+     * Access by index
+     * 
+     * @param index | int | index of the student to be accessed
+     * @return Student | student at the given index
+     */
+    public Student getStudent(int index) throws IndexOutOfBoundsException {
+        return this.students.get(index);
+    }
+
+    public ArrayList<Student> getStudent(String name) {
+        ArrayList<Student> out = new ArrayList<Student>();
+
+        try {
+            for (Student student : this.students) {
+                if (student.getName() == name) {
+                    out.add(student);
+                }
+            }
+            if (out.size() == 0) {
+                throw new NoSuchFieldException();
+            }
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+        return out;
+    }
+
 
     // ### MAIN ###
 

@@ -17,7 +17,9 @@ public class School {
     /**
      * Constructor to create a new School class object
      */
-    public School() {
+    public School(String name) {
+        this.name = name;
+
         courses = new ArrayList<Course>();
         students = new ArrayList<Student>();
         policy = new ArrayList<Policy>();

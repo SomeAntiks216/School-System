@@ -5,6 +5,7 @@ public class Course {
     //  ### VARIABLES ###
 
     private String name;
+    private String ID;
     private ArrayList<Student> students;
     private ArrayList<Assignment> assignments;
 
@@ -15,8 +16,9 @@ public class Course {
      * 
      * @param name | String | the name of the course
      */
-    public Course(String name) {
+    public Course(String name, String ID) {
         this.name = name;
+        this.ID = ID;
 
         this.students = new ArrayList<Student>();
         this.assignments = new ArrayList<Assignment>();
@@ -74,9 +76,30 @@ public class Course {
     }
 
 
+    // ### MANIPULATORS ###
+
+    public boolean addStudent(Student student) {
+        
+        try {
+            if (this.students.contains(student)) {
+                throw new IllegalArgumentException("The student \"" + student + "\" is already in this class.");
+            } else {
+                this.students.add(student);
+            }
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
+
     // ### MAIN ###
 
     public static void main(String[] args) throws Exception {
+
+        Course csc120 = new Course("Object Oriented Programming", "CSC 120");
 
     }
 

@@ -8,6 +8,9 @@ public class Policy {
 
     /**
      * Constructor to create a new Policy class object
+     * 
+     * @param name | String | the name of the policy
+     * @param clauses | ArrayList<String> | clauses to be part of the policy
      */
     public Policy(String name, ArrayList<String> clauses) {
         this.name = name;

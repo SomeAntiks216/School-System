@@ -16,6 +16,8 @@ public class School {
 
     /**
      * Constructor to create a new School class object
+     * 
+     * @param name | String | the name of the school
      */
     public School(String name) {
         this.name = name;

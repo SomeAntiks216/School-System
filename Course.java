@@ -7,6 +7,7 @@ public class Course {
 
     private String name;
     private String ID;
+    private Professor professor;
     private ArrayList<Student> students;
     private ArrayList<Assignment> assignments;
 
@@ -17,9 +18,10 @@ public class Course {
      * 
      * @param name | String | the name of the course
      */
-    public Course(String name, String ID) {
+    public Course(String name, String ID, Professor professor) {
         this.name = name;
         this.ID = ID;
+        this.professor = professor;
 
         this.students = new ArrayList<Student>();
         this.assignments = new ArrayList<Assignment>();

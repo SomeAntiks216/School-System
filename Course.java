@@ -56,19 +56,30 @@ public class Course {
         return this.students.get(index);
     }
 
+    /**
+     * Public student accessor (one or more students)
+     * Access by name
+     * 
+     * @param name | String | name of the student to be accessed
+     * @return ArrayList<Student> | all students in this course with the provided name
+     */
     public ArrayList<Student> getStudent(String name) {
         ArrayList<Student> out = new ArrayList<Student>();
 
         try {
-            for (Student student : this.students) {
-                if (student.getName() == name) {
-                    out.add(student);
+            if (this.students.size() != 0) {
+                for (Student student : this.students) {
+                    if (student.getName().toLowerCase().equals(name.toLowerCase())) {
+                        out.add(student);
+                    }
                 }
+            } else {
+                throw new IllegalStateException("There are no students in this course.");
             }
             if (out.size() == 0) {
-                throw new NoSuchFieldException();
+                throw new NoSuchFieldException("There are no students with the name \"" + name + "\"");
             }
-        } catch (NoSuchFieldException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -82,9 +93,10 @@ public class Course {
         
         try {
             if (this.students.contains(student)) {
-                throw new IllegalArgumentException("The student \"" + student + "\" is already in this class.");
+                throw new IllegalArgumentException("The student \"" + student + "\" is already in this course.");
             } else {
                 this.students.add(student);
+                student.addCourse(this);
             }
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
@@ -100,6 +112,8 @@ public class Course {
     public static void main(String[] args) throws Exception {
 
         Course csc120 = new Course("Object Oriented Programming", "CSC 120");
+
+        csc120.addStudent(new Student("Harry"));
 
     }
 

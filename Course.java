@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class Course {
 
@@ -77,7 +78,7 @@ public class Course {
                 throw new IllegalStateException("There are no students in this course.");
             }
             if (out.size() == 0) {
-                throw new NoSuchFieldException("There are no students with the name \"" + name + "\"");
+                throw new NoSuchElementException("There are no students with the name \"" + name + "\"");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -90,13 +91,12 @@ public class Course {
     // ### MANIPULATORS ###
 
     public boolean addStudent(Student student) {
-        
         try {
             if (this.students.contains(student)) {
-                throw new IllegalArgumentException("The student \"" + student + "\" is already in this course.");
+                throw new IllegalArgumentException("The student \"" + student.getName() + "\" is already in this course.");
             } else {
                 this.students.add(student);
-                student.addCourse(this);
+                student.joinCourse(this);
             }
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
@@ -106,14 +106,29 @@ public class Course {
         return true;
     }
 
+    public boolean removeStudent(Student student) {
+        try {
+            if (this.students.contains(student)) {
+                this.students.remove(student);
+            } else {
+                throw new IllegalArgumentException("The student \"" + student.getName() + "\" is not in this course.");
+            }
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
 
     // ### MAIN ###
 
     public static void main(String[] args) throws Exception {
 
+        Student harry = new Student("Harry");
         Course csc120 = new Course("Object Oriented Programming", "CSC 120");
 
-        csc120.addStudent(new Student("Harry"));
+        csc120.addStudent(harry);
+        
 
     }
 

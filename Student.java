@@ -21,7 +21,7 @@ public class Student {
     }
 
 
-    // ### ACCESSORS
+    // ### ACCESSORS ### 
 
     /**
      * Public name accessor
@@ -30,6 +30,28 @@ public class Student {
      */
     public String getName() {
         return this.name;
+    }
+
+
+    // ### MANIPULATORS ###
+
+
+
+    // ### METHODS ###
+
+    public boolean joinCourse(Course course) {
+        try {
+            if (this.courses.contains(course)) {
+                throw new IllegalArgumentException("This student is already in the course \"" + course + "\"");
+            } else {
+                this.courses.add(course);
+            }
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
     }
 
 

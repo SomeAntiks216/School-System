@@ -10,7 +10,7 @@ public class School {
     private ArrayList<Course> courses;
     private ArrayList<Student> students;
 
-    private ArrayList<Policy> policy;
+    private ArrayList<Policy> policies;
 
 
     // ### CONSTRUCTOR ###
@@ -25,7 +25,7 @@ public class School {
 
         courses = new ArrayList<Course>();
         students = new ArrayList<Student>();
-        policy = new ArrayList<Policy>();
+        policies = new ArrayList<Policy>();
     }
 
 
@@ -59,26 +59,26 @@ public class School {
     }
 
     /**
-     * Public policy accessor (entire policy)
+     * Public policies accessor (all policies)
      * 
      * @return ArrayList<Policy> | school policy list
      */
     public ArrayList<Policy> getPolicy() {
-        return this.policy;
+        return this.policies;
     }
 
     /**
-     * Public unit policy accessor (singular policy item)
+     * Public policy accessor (singular policy item)
      * 
      * @param index | int | index of the desired policy
      * @return Policy | policy at the given index
      */
     public Policy getUnitPolicy(int index) throws IndexOutOfBoundsException {
-        return this.policy.get(index);
+        return this.policies.get(index);
     }
 
     /**
-     * Public unit policy accessor (one or more policy items)
+     * Public policy accessor (one or more policy items)
      * Access by name
      * 
      * @param name | String | name of the policy to be accessed
@@ -89,7 +89,7 @@ public class School {
         
         try {
             if (this.policy.size() != 0) {
-                for (Policy p : this.policy) {
+                for (Policy p : this.policies) {
                     out.add(p);
                 }
             } else {

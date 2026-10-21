@@ -5,6 +5,7 @@ public class Student {
     // ### ATTRIBUTES ###
 
     private String name;
+    private Year year;
     private ArrayList<Course> courses;
 
     // ### CONSTRUCTOR ###
@@ -13,9 +14,11 @@ public class Student {
      * Constructor to create a new Student class object
      * 
      * @param name | String | name of the student
+     * @param year | String | year of the student
      */
-    public Student(String name) {
+    public Student(String name, Year year) {
         this.name = name;
+        this.year = year;
 
         this.courses = new ArrayList<Course>();
     }

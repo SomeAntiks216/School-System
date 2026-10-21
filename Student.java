@@ -35,6 +35,15 @@ public class Student {
         return this.name;
     }
 
+    /**
+     * Public year accessor
+     * 
+     * @return Year | year of the student
+     */
+    public Year getYear() {
+        return this.year;
+    }
+
 
     // ### MANIPULATORS ###
 

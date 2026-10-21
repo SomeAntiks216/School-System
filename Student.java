@@ -51,6 +51,12 @@ public class Student {
 
     // ### METHODS ###
 
+    /**
+     * Join a course
+     * 
+     * @param course | Course | course to join
+     * @return boolean | boolean indicator of the success of the method
+     */
     public boolean joinCourse(Course course) {
         try {
             if (this.courses.contains(course)) {

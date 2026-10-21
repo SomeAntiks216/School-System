@@ -108,6 +108,12 @@ public class School {
 
     // ### MANIPULATORS ###
 
+    /**
+     * Adds a course to this school
+     * 
+     * @param course | Course | course to be added
+     * @return boolean | boolean indicator of the success of the method
+     */
     public boolean addCourse(Course course) {
         try {
             if (this.courses.contains(course)) {
@@ -122,6 +128,8 @@ public class School {
 
         return true;
     }
+
+    
 
 
     // ### METHODS ###

@@ -150,6 +150,27 @@ public class School {
         return true;
     }
 
+    /**
+     * Adds a student to this school
+     * 
+     * @param student | Student | student to be added
+     * @return boolean | boolean indicator of the success of the method
+     */
+    public boolean enrollStudent(Student student) {
+        try {
+            if (this.students.contains(student)) {
+                throw new IllegalArgumentException("The student \"" + student + "\" is already enrolled.");
+            } else {
+                this.students.add(student);
+            }
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
 
     // ### METHODS ###
 

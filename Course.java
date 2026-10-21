@@ -8,6 +8,7 @@ public class Course {
     private String name;
     private String ID;
     private Professor professor;
+    private int capacity;
     private ArrayList<Student> students;
     private ArrayList<Assignment> assignments;
 
@@ -18,10 +19,11 @@ public class Course {
      * 
      * @param name | String | the name of the course
      */
-    public Course(String name, String ID, Professor professor) {
+    public Course(String name, String ID, Professor professor, int capacity) {
         this.name = name;
         this.ID = ID;
         this.professor = professor;
+        this.capacity = capacity;
 
         this.students = new ArrayList<Student>();
         this.assignments = new ArrayList<Assignment>();
@@ -92,10 +94,18 @@ public class Course {
 
     // ### MANIPULATORS ###
 
+    /**
+     * Adds a student to this course
+     * 
+     * @param student | Student | student to be added
+     * @return boolean | boolean indicator of the success of the method
+     */
     public boolean addStudent(Student student) {
         try {
             if (this.students.contains(student)) {
                 throw new IllegalArgumentException("The student \"" + student.getName() + "\" is already in this course.");
+            } else if (this.students.size() + 1 > this.capacity) {
+                throw new IllegalArgumentException("There is not enough space in the course for another student.");
             } else {
                 this.students.add(student);
                 student.joinCourse(this);
@@ -108,6 +118,12 @@ public class Course {
         return true;
     }
 
+    /**
+     * Removes a student from a course
+     * 
+     * @param student | Student | student to be removed
+     * @return boolean | boolean indicator of the success of the method
+     */
     public boolean removeStudent(Student student) {
         try {
             if (this.students.contains(student)) {
@@ -121,6 +137,12 @@ public class Course {
         return true;
     }
 
+    /**
+     * Creates an assignment in the course
+     * 
+     * @param assignment | Assignment | assignment to be added
+     * @return boolean | boolean indicator of the success of the method
+     */
     public boolean addAssignment(Assignment assignment) {
         
         try {

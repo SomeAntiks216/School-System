@@ -171,6 +171,27 @@ public class School {
         return true;
     }
 
+    /**
+     * Removes a student from this school
+     * 
+     * @param student | Student | student to be removed
+     * @return boolean | boolean indicator of the success of the method
+     */
+    public boolean unenrollStudent(Student student) {
+        try {
+            if (this.students.contains(student)) {
+                this.students.remove(student);
+            } else {
+                throw new IllegalArgumentException("The student \"" + student + "\" is not enrolled.");
+            }
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
 
     // ### METHODS ###
 

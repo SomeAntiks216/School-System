@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class School {
     
@@ -76,11 +77,38 @@ public class School {
         return this.policy.get(index);
     }
 
+    /**
+     * Public unit policy accessor (one or more policy items)
+     * Access by name
+     * 
+     * @param name | String | name of the policy to be accessed
+     * @return ArrayList<Policy> | all policies in this school with the provided name
+     */
+    public ArrayList<Policy> getUnitPolicy(String name) {
+        ArrayList<Policy> out = new ArrayList<Policy>();
+        
+        try {
+            if (this.policy.size() != 0) {
+                for (Policy p : this.policy) {
+                    out.add(p);
+                }
+            } else {
+                throw new IllegalStateException("There are no policies in this school.");
+            }
+            if (out.size() == 0) {
+                throw new NoSuchElementException("There are no policies with the name \"" + name + "\" in this school.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return out;
+    }
+
 
     // ### MANIPULATORS ###
 
     public boolean addCourse(Course course) {
-
         try {
             if (this.courses.contains(course)) {
                 throw new IllegalArgumentException("Course <" + course + "> already exists.");
@@ -97,13 +125,13 @@ public class School {
 
 
     // ### METHODS ###
-    
+
 
 
     // ### MAIN ###
 
     public static void main(String[] args) throws Exception {
-
+        
     }
 
 }

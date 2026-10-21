@@ -85,7 +85,7 @@ public class Course {
                 throw new IllegalStateException("There are no students in this course.");
             }
             if (out.size() == 0) {
-                throw new NoSuchElementException("There are no students with the name \"" + name + "\"");
+                throw new NoSuchElementException("There are no students with the name \"" + name + "\" in this course.");
             }
         } catch (Exception e) {
             e.printStackTrace();

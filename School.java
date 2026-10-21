@@ -117,19 +117,38 @@ public class School {
     public boolean addCourse(Course course) {
         try {
             if (this.courses.contains(course)) {
-                throw new IllegalArgumentException("Course <" + course + "> already exists.");
+                throw new IllegalArgumentException("The course \"" + course + "\" already exists.");
             } else {
                 this.courses.add(course);
             }
         } catch (IllegalArgumentException e) {
-            System.out.println(e);
+            e.printStackTrace();
             return false;
         }
 
         return true;
     }
 
-    
+    /**
+     * Removes a course from this school
+     * 
+     * @param course | Course | course to be remvoed
+     * @return boolean | boolean indicator of the success of the method
+     */
+    public boolean removeCourse(Course course) {
+        try {
+            if (this.courses.contains(course)) {
+                this.courses.remove(course);
+            } else {
+                throw new IllegalArgumentException("The course \"" + course + "\" is not offered in this school.");
+            }
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
 
 
     // ### METHODS ###

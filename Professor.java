@@ -6,6 +6,9 @@ public class Professor {
     
     // ### CONSTRUCTOR ###
 
+    /**
+     * Constructor to create a new Professor class object
+     */
     public Professor() {
 
     }

@@ -12,6 +12,12 @@ public class Assignment {
 
     // ### CONSTRUCTOR ###
 
+    /**
+     * Constructor to create a new Assignment class object
+     * 
+     * @param name | String | name of the assignment
+     * @param ID | String | ID of the assignment
+     */
     public Assignment(String name, String ID) {
         this.name = name;
         this.ID = ID;
@@ -45,6 +51,10 @@ public class Assignment {
 
 
     // ### METHODS ###
+
+
+
+    // ### MAIN ###
 
     public static void main(String[] args) throws Exception {
 

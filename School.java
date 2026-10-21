@@ -96,9 +96,8 @@ public class School {
     }
 
 
-    // ### ORGANIZERS ###
-
-    // course list alphabetizer
+    // ### METHODS ###
+    
 
 
     // ### MAIN ###

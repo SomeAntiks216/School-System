@@ -18,6 +18,9 @@ public class Course {
      * Constructor to create a new Course class object
      * 
      * @param name | String | the name of the course
+     * @param ID | String | ID of the course
+     * @param professor | Professor | professor for the course
+     * @param capacity | int | maximum number of students in the class
      */
     public Course(String name, String ID, Professor professor, int capacity) {
         this.name = name;
@@ -143,8 +146,7 @@ public class Course {
      * @param assignment | Assignment | assignment to be added
      * @return boolean | boolean indicator of the success of the method
      */
-    public boolean addAssignment(Assignment assignment) {
-        
+    public boolean addAssignment(Assignment assignment) {   
         try {
             if (this.assignments.contains(assignment)) {
                 throw new IllegalArgumentException("The assignment \"" + assignment.getName() + "\" is already in this course.");
@@ -158,6 +160,11 @@ public class Course {
 
         return true;
     }
+
+
+    // ### METHODS ###
+
+
 
     // ### MAIN ###
 

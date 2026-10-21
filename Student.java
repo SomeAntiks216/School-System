@@ -72,6 +72,27 @@ public class Student {
         return true;
     }
 
+    /**
+     * Drop a course
+     * 
+     * @param course | Course | course to be dropped
+     * @return boolean | boolean indicator of the success of the method
+     */
+    public boolean dropCourse(Course course) {
+        try {
+            if (this.courses.contains(course)) {
+                this.courses.remove(course);
+            } else {
+                throw new IllegalArgumentException("This student is not taking \"" + course + ".\"");
+            }
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
 
     // ### MAIN ###
 

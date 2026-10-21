@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Student {
     
-    //### VARIABLES ###
+    // ### ATTRIBUTES ###
 
     private String name;
     private ArrayList<Course> courses;

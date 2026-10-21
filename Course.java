@@ -121,16 +121,25 @@ public class Course {
         return true;
     }
 
+    public boolean addAssignment(Assignment assignment) {
+        
+        try {
+            if (this.assignments.contains(assignment)) {
+                throw new IllegalArgumentException("The assignment \"" + assignment.getName() + "\" is already in this course.");
+            } else {
+                this.assignments.add(assignment);
+            }
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
 
     // ### MAIN ###
 
     public static void main(String[] args) throws Exception {
-
-        Student harry = new Student("Harry");
-        Course csc120 = new Course("Object Oriented Programming", "CSC 120");
-
-        csc120.addStudent(harry);
-        
 
     }
 
